@@ -1,15 +1,24 @@
 {
   "name": "tcx-builder",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Tcx builder",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "test": "mocha -r ts-node/register ./**/*.spec.ts"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthony2856/tcx-builder.git"
+  },
+  "keywords": [
+    "tcx",
+    "sport",
+    "gpx",
+    "garmin"
+  ],
+  "author": "Anthony Le Gal",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.2.11",
