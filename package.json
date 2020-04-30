@@ -1,6 +1,6 @@
 {
   "name": "tcx-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tcx builder",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,7 +16,10 @@
     "tcx",
     "sport",
     "gpx",
-    "garmin"
+    "garmin",
+    "fit",
+    "activities",
+    "polar"
   ],
   "author": "Anthony Le Gal",
   "license": "ISC",
