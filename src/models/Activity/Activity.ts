@@ -10,7 +10,7 @@ export class Activity extends BaseObject {
 
   public attributes: ActivityAttributes;
   public Id: Date;
-  public Lap: ActivityLap;
+  public Laps: ActivityLap[];
   public Notes?: string;
   public Training?: Training;
   public Creator?: AbstractSource;
@@ -19,7 +19,7 @@ export class Activity extends BaseObject {
     sport: ActivityAttributeSport = 'Running',
     options: {
       Id: Date,
-      Lap: ActivityLap,
+      Laps: ActivityLap[],
       Notes?: string,
       Training?: Training,
       Creator?: AbstractSource,
@@ -29,7 +29,7 @@ export class Activity extends BaseObject {
     this.attributes = new ActivityAttributes(sport);
 
     this.Id = options.Id;
-    this.Lap = options.Lap;
+    this.Laps = options.Laps;
     this.Notes = options.Notes;
     this.Training = options.Training;
     this.Creator = options.Creator;
@@ -38,7 +38,12 @@ export class Activity extends BaseObject {
   toXml() {
     let xmlElement = '';
     xmlElement += BaseObject.buildXmlNode('Id', this.Id.toISOString());
-    xmlElement += BaseObject.buildXmlNode('Lap', this.Lap.toXml(), this.Lap.attributes);
+
+    if (!_isNil(this.Laps) && this.Laps.length) {
+      xmlElement += this.Laps
+          .map((_activityLap: ActivityLap) => BaseObject.buildXmlNode('Lap', _activityLap.toXml(), _activityLap.attributes))
+          .join('\n');
+    }
 
     if (!_isNil(this.Notes)) {
       xmlElement += BaseObject.buildXmlNode('Notes', this.Notes);
