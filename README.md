@@ -70,7 +70,7 @@ const myLap: ActivityLap = new ActivityLap(new Date(), {
 
 const tcxActivity = new Activity('Biking', {
   Id: new Date(),
-  Lap: myLap,
+  Laps: [ myLap ],
   Notes: 'Activity Description',
 });
 const activityList = new ActivityList({ activity: [tcxActivity] });
