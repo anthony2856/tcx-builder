@@ -12,9 +12,9 @@ export class BaseObject {
       return '';
     }
 
-    const attributesStr = attributes ? `${attributes.toString()}` : '';
+    const attributesStr = attributes ? ` ${attributes.toString()}` : '';
 
-    return `<${type} ${attributesStr}>
+    return `<${type}${attributesStr}>
       ${elements}
     </${type}>`;
   }
